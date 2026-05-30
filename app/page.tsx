@@ -1,14 +1,12 @@
-import { supabase } from "@/lib/supabase";
+const rayons = [
+  { id: "1", nom: "Boulangerie", icone: "🥖" },
+  { id: "2", nom: "Boucherie", icone: "🥩" },
+  { id: "3", nom: "Fruits & Légumes", icone: "🥦" },
+  { id: "4", nom: "Surgelés", icone: "🧊" },
+  { id: "5", nom: "Boissons", icone: "🥤" },
+];
 
-export default async function Home() {
-  const { data: rayons, error } = await supabase
-    .from("rayons_reference")
-    .select("*");
-
-  if (error) {
-    return <p>Erreur : {error.message}</p>;
-  }
-
+export default function Home() {
   return (
     <main className="p-8">
       <h1 className="text-2xl font-bold mb-4">RayonMap</h1>
